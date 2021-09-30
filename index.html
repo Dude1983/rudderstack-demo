@@ -60,7 +60,21 @@
         </form>        
     </section>
 
-    <script src="script.js"></script>
+    <script>
+document.querySelector("#email-form").addEventListener("submit", function(event){
+    event.preventDefault()
+
+    const emailForm = document.querySelector("#email")
+    const email = emailForm.value
+
+    console.log(email)
+
+    // Make RudderStack Identify Call
+    rudderanalytics.idenitfy(email, { favorite_team: "Arsenal" })
+
+    emailForm.value = ""
+} )
+    </script>
 
 </body>
 </html>
